@@ -35,7 +35,7 @@ interface HttpDriverInterface
      * Sets a value in the session
      *
      * @param string $name
-     * @param string $value
+     * @param array|string $value
      */
     function setSessionValue($name, $value);
 

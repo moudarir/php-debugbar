@@ -46,6 +46,9 @@ class JavascriptRenderer
         'highlightjs' => 'vendor/highlightjs/highlight.pack.js'
     );
 
+    /**
+     * @var array|bool
+     */
     protected $includeVendors = true;
 
     protected $cssFiles = array('debugbar.css', 'widgets.css', 'openhandler.css');
@@ -83,7 +86,7 @@ class JavascriptRenderer
     protected $openHandlerUrl;
 
     /**
-     * @param \DebugBar\DebugBar $debugBar
+     * @param DebugBar $debugBar
      * @param string $baseUrl
      * @param string $basePath
      */
@@ -126,6 +129,7 @@ class JavascriptRenderer
      *  - open_handler_url
      *
      * @param array $options [description]
+     * @throws DebugBarException
      */
     public function setOptions(array $options)
     {
@@ -189,6 +193,7 @@ class JavascriptRenderer
      * Sets the path which assets are relative to
      *
      * @param string $path
+     * @return JavascriptRenderer
      */
     public function setBasePath($path)
     {
@@ -210,6 +215,7 @@ class JavascriptRenderer
      * Sets the base URL from which assets will be served
      *
      * @param string $url
+     * @return JavascriptRenderer
      */
     public function setBaseUrl($url)
     {
@@ -234,6 +240,7 @@ class JavascriptRenderer
      * setIncludeVendors('css') or setIncludeVendors('js')
      *
      * @param boolean $enabled
+     * @return JavascriptRenderer
      */
     public function setIncludeVendors($enabled = true)
     {
@@ -281,6 +288,7 @@ class JavascriptRenderer
      * Sets the javascript class name
      *
      * @param string $className
+     * @return JavascriptRenderer
      */
     public function setJavascriptClass($className)
     {
@@ -302,6 +310,7 @@ class JavascriptRenderer
      * Sets the variable name of the class instance
      *
      * @param string $name
+     * @return JavascriptRenderer
      */
     public function setVariableName($name)
     {
@@ -327,6 +336,7 @@ class JavascriptRenderer
      *  - INITIALIZE_CONSTRUCTOR | INITIALIZE_CONTROLS: initialize everything (default)
      *
      * @param integer $init
+     * @return JavascriptRenderer
      */
     public function setInitialization($init)
     {
@@ -348,6 +358,7 @@ class JavascriptRenderer
      * Sets whether to call jQuery.noConflict()
      *
      * @param boolean $enabled
+     * @return JavascriptRenderer
      */
     public function setEnableJqueryNoConflict($enabled = true)
     {
@@ -402,6 +413,8 @@ class JavascriptRenderer
      *
      * @param string $name
      * @param array $options
+     * @return JavascriptRenderer
+     * @throws DebugBarException
      */
     public function addControl($name, array $options)
     {
@@ -416,6 +429,7 @@ class JavascriptRenderer
      * Disables a control
      *
      * @param string $name
+     * @return JavascriptRenderer
      */
     public function disableControl($name)
     {
@@ -439,6 +453,7 @@ class JavascriptRenderer
      * Ignores widgets provided by a collector
      *
      * @param string $name
+     * @return JavascriptRenderer
      */
     public function ignoreCollector($name)
     {
@@ -462,6 +477,7 @@ class JavascriptRenderer
      * Set to false to disable
      *
      * @param string $className
+     * @return JavascriptRenderer
      */
     public function setAjaxHandlerClass($className)
     {
@@ -483,6 +499,7 @@ class JavascriptRenderer
      * Sets whether to call bindToFetch() on the ajax handler
      *
      * @param boolean $bind
+     * @return JavascriptRenderer
      */
     public function setBindAjaxHandlerToFetch($bind = true)
     {
@@ -504,6 +521,7 @@ class JavascriptRenderer
      * Sets whether to call bindToJquery() on the ajax handler
      *
      * @param boolean $bind
+     * @return JavascriptRenderer
      */
     public function setBindAjaxHandlerToJquery($bind = true)
     {
@@ -525,6 +543,7 @@ class JavascriptRenderer
      * Sets whether to call bindToXHR() on the ajax handler
      *
      * @param boolean $bind
+     * @return JavascriptRenderer
      */
     public function setBindAjaxHandlerToXHR($bind = true)
     {
@@ -547,6 +566,7 @@ class JavascriptRenderer
      * if there are a lot of tracking events cluttering things.
      *
      * @param boolean $autoShow
+     * @return JavascriptRenderer
      */
     public function setAjaxHandlerAutoShow($autoShow = true)
     {
@@ -568,6 +588,7 @@ class JavascriptRenderer
      * Sets the class name of the js open handler
      *
      * @param string $className
+     * @return JavascriptRenderer
      */
     public function setOpenHandlerClass($className)
     {
@@ -589,6 +610,7 @@ class JavascriptRenderer
      * Sets the url of the open handler
      *
      * @param string $url
+     * @return JavascriptRenderer
      */
     public function setOpenHandlerUrl($url)
     {
@@ -746,7 +768,7 @@ class JavascriptRenderer
      *
      * @param string|array $uri
      * @param string $root
-     * @return string
+     * @return string|array
      */
     protected function makeUriRelativeTo($uri, $root)
     {
@@ -968,10 +990,11 @@ class JavascriptRenderer
     /**
      * Is callback function for register_shutdown_function(...)
      *
-     * @param boolean $here Set position of HTML. True if is to current position or false for end file
+     * @param boolean $here       Set position of HTML. True if is to current position or false for end file
      * @param boolean $initialize Whether to render the de bug bar initialization code
      * @param bool $renderStackedData
      * @param bool $head
+     * @throws DebugBarException
      */
     public function replaceTagInBuffer($here = true, $initialize = true, $renderStackedData = true, $head = false)
     {
@@ -992,9 +1015,10 @@ class JavascriptRenderer
      *
      * AJAX request should not render the initialization code.
      *
-     * @param boolean $initialize Whether or not to render the debug bar initialization code
+     * @param boolean $initialize        Whether or not to render the debug bar initialization code
      * @param boolean $renderStackedData Whether or not to render the stacked data
      * @return string
+     * @throws DebugBarException
      */
     public function render($initialize = true, $renderStackedData = true)
     {

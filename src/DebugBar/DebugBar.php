@@ -40,6 +40,9 @@ class DebugBar implements ArrayAccess
 
     protected $requestId;
 
+    /**
+     * @var StorageInterface|null
+     */
     protected $storage;
 
     protected $httpDriver;
@@ -271,7 +274,8 @@ class DebugBar implements ArrayAccess
      * Returns an array of HTTP headers containing the data
      *
      * @param string $headerName
-     * @param integer $maxHeaderLength
+     * @param int $maxHeaderLength
+     * @param int $maxTotalHeaderLength
      * @return array
      */
     public function getDataAsHeaders($headerName = 'phpdebugbar', $maxHeaderLength = 4096, $maxTotalHeaderLength = 250000)
@@ -330,6 +334,8 @@ class DebugBar implements ArrayAccess
 
     /**
      * Stacks the data in the session for later rendering
+     *
+     * @throws DebugBarException
      */
     public function stackData()
     {
@@ -368,6 +374,7 @@ class DebugBar implements ArrayAccess
      *
      * @param boolean $delete Whether to delete the data in the session
      * @return array
+     * @throws DebugBarException
      */
     public function getStackedData($delete = true)
     {
@@ -471,11 +478,21 @@ class DebugBar implements ArrayAccess
     // --------------------------------------------
     // ArrayAccess implementation
 
+    /**
+     * @param mixed $key
+     * @param mixed $value
+     * @throws DebugBarException
+     */
     public function offsetSet($key, $value)
     {
         throw new DebugBarException("DebugBar[] is read-only");
     }
 
+    /**
+     * @param mixed $key
+     * @return DataCollectorInterface|mixed
+     * @throws DebugBarException
+     */
     public function offsetGet($key)
     {
         return $this->getCollector($key);
@@ -486,6 +503,10 @@ class DebugBar implements ArrayAccess
         return $this->hasCollector($key);
     }
 
+    /**
+     * @param mixed $key
+     * @throws DebugBarException
+     */
     public function offsetUnset($key)
     {
         throw new DebugBarException("DebugBar[] is read-only");
