@@ -61,6 +61,7 @@ div.phpdebugbar-widgets-messages {
     content: "\f071";
     margin-right: 8px;
     font-size: 11px;
+    font-weight: 900;
     color: #ecb03d;
   }
   div.phpdebugbar-widgets-messages li.phpdebugbar-widgets-list-item span.phpdebugbar-widgets-value.phpdebugbar-widgets-error {
@@ -71,6 +72,7 @@ div.phpdebugbar-widgets-messages {
     content: "\f057";
     margin-right: 8px;
     font-size: 11px;
+    font-weight: 900;
     color: red;
   }
   div.phpdebugbar-widgets-messages li.phpdebugbar-widgets-list-item pre.sf-dump {
@@ -258,4 +260,5 @@ div.phpdebugbar-widgets-exceptions a.phpdebugbar-widgets-editor-link:before {
 div.phpdebugbar-widgets-exceptions a.phpdebugbar-widgets-editor-link:before {
   content: "\f08e";
   margin-left: 4px;
+  font-weight: 900;
 }

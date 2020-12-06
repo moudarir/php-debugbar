@@ -37,7 +37,7 @@ class JavascriptRenderer
     protected $basePath;
 
     protected $cssVendors = array(
-        'fontawesome' => 'vendor/font-awesome/css/font-awesome.min.css',
+        'fontawesome' => 'vendor/font-awesome-5/css/all.min.css',
         'highlightjs' => 'vendor/highlightjs/styles/github.css'
     );
 

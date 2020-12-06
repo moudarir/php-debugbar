@@ -2,6 +2,6 @@
   "name": "maximebf/php-debugbar",
   "dependencies": {
     "jquery": "^3.3",
-    "font-awesome": "^4.7"
+    "font-awesome-5": "^5.15"
   }
 }

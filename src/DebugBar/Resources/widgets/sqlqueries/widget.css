@@ -41,21 +41,27 @@ div.phpdebugbar-widgets-sqlqueries span.phpdebugbar-widgets-stmt-id:before {
 }
 div.phpdebugbar-widgets-sqlqueries span.phpdebugbar-widgets-database:before {
   content: "\f1c0";
+  font-weight: 900;
 }
 div.phpdebugbar-widgets-sqlqueries span.phpdebugbar-widgets-duration:before {
   content: "\f017";
+  font-weight: 900;
 }
 div.phpdebugbar-widgets-sqlqueries span.phpdebugbar-widgets-memory:before {
   content: "\f085";
+  font-weight: 900;
 }
 div.phpdebugbar-widgets-sqlqueries span.phpdebugbar-widgets-row-count:before {
   content: "\f0ce";
+  font-weight: 900;
 }
 div.phpdebugbar-widgets-sqlqueries span.phpdebugbar-widgets-stmt-id:before {
   content: "\f08d";
+  font-weight: 900;
 }
 div.phpdebugbar-widgets-sqlqueries span.phpdebugbar-widgets-copy-clipboard:before {
   content: "\f0c5";
+  font-weight: 900;
 }
 div.phpdebugbar-widgets-sqlqueries table.phpdebugbar-widgets-params {
   display: none;

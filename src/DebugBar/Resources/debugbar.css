@@ -47,7 +47,7 @@ div.phpdebugbar * {
   margin: 0;
   padding: 0;
   border: 0;
-  font-weight: normal;
+  /*font-weight: normal;*/
   text-decoration: none;
   clear: initial;
   width: auto;

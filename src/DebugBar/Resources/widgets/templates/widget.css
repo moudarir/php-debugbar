@@ -34,18 +34,22 @@ div.phpdebugbar-widgets-templates a.phpdebugbar-widgets-editor-link:before
 }
 div.phpdebugbar-widgets-templates span.phpdebugbar-widgets-render-time:before {
   content: "\f017";
+  font-weight: 900;
 }
 div.phpdebugbar-widgets-templates span.phpdebugbar-widgets-memory:before {
   content: "\f085";
+  font-weight: 900;
 }
 div.phpdebugbar-widgets-templates span.phpdebugbar-widgets-param-count:before {
   content: "\f0ce";
+  font-weight: 900;
 }
 div.phpdebugbar-widgets-templates span.phpdebugbar-widgets-type:before {
   content: "\f121";
 }
 div.phpdebugbar-widgets-templates a.phpdebugbar-widgets-editor-link:before {
   content: "\f08e";
+  font-weight: 900;
   margin-left: 4px;
 }
 div.phpdebugbar-widgets-templates table.phpdebugbar-widgets-params {
